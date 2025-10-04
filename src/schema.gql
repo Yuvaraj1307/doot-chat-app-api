@@ -1,0 +1,66 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Conversation {
+  id: ID!
+  participants: [String!]!
+  title: String
+}
+
+input CreateConversationInput {
+  participants: [String!]!
+  title: String
+}
+
+input CreateUserInput {
+  displayName: String
+  email: String!
+  password: String!
+  username: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Message {
+  content: String!
+  conversationId: String!
+  id: ID!
+  senderId: String!
+  status: String!
+}
+
+type Mutation {
+  createConversation(input: CreateConversationInput!): Conversation!
+  createMessage(input: SendMessageInput!, senderId: String!): Message!
+  getMessagesByConversationId(conversationId: String!): [Message!]!
+  login(input: LoginInput!): String!
+  singUp(input: CreateUserInput!): User!
+}
+
+type Query {
+  getConversationById(conversationId: String!): Conversation
+  getUserConversations(userId: String!): [Conversation!]!
+  healthCheck: String!
+  me(id: String!): User
+  userByEmail(email: String!): User
+}
+
+input SendMessageInput {
+  content: String!
+  conversationId: String!
+}
+
+type Subscription {
+  messageSent(conversationId: String!): Message!
+}
+
+type User {
+  displayName: String
+  email: String!
+  id: ID!
+  name: String!
+}
