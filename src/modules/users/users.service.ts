@@ -3,7 +3,7 @@ import { InjectModel } from "@nestjs/mongoose";
 import * as bcrypt from 'bcrypt';
 import { User } from "./schemas/user.schema";
 import { Model } from "mongoose";
-import { CreateUserInput } from "./dto/create-user.input";
+import { CreateUserInput } from "./dto/create-user.input.dto";
 import { BCRYPT_SALT_ROUNDS } from "@/common/constants/app.constants";
 
 @Injectable()

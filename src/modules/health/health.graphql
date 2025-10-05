@@ -1,0 +1,8 @@
+query HealthCheck {
+  healthCheck {
+    status
+    db
+    pubSub
+    timestamp
+  }
+}

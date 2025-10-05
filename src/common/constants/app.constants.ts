@@ -14,6 +14,8 @@ export const DB_NAME = process.env.DB_NAME || 'doot-chat-app';
 export const GRAPHQL_PLAYGROUND = process.env.GRAPHQL_PLAYGROUND === 'true';
 export const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : ['*'];
 export const PORT = process.env.PORT || 4000;
+export const NODE_ENV = process.env.NODE_ENV || 'development';
+export const GRAPHQL_SCHEMA_DEST = process.env.GRAPHQL_SCHEMA_DEST || 'src/graphql/schema.gql';
 
 // Application constants
 export const MESSAGE_SENT = 'MESSAGE_SENT';

@@ -4,6 +4,7 @@ import { User } from '../users/schemas/user.schema';
 import { Model } from 'mongoose';
 import { PUB_SUB } from '@/common/constants/app.constants';
 import { PubSub } from 'graphql-subscriptions';
+import { HealthStatus } from './dto/health.dto';
 
 @Injectable()
 export class HealthService {
@@ -11,7 +12,7 @@ export class HealthService {
         @InjectModel(User.name) private userModel: Model<User>,
         @Inject(PUB_SUB) private readonly pubSub: PubSub,
     ) { }
-    async check() {
+    async check(): Promise<HealthStatus> {
         const dbStatus = await this.checkDB();
         const pubSubStatus = this.checkPubSub();
         return {

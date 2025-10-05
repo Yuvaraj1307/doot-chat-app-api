@@ -1,0 +1,26 @@
+mutation SendMessage($input: SendMessageInput!, $senderId: String!) {
+  sendMessage(input: $input, senderId: $senderId) {
+    id
+    conversationId
+    senderId
+    content
+  }
+}
+
+query MessagesByConversationId($conversationId: String!) {
+  messagesByConversationId(conversationId: $conversationId) {
+    id
+    conversationId
+    senderId
+    content
+  }
+}
+
+subscription MessageSent($conversationId: String!) {
+  messageSent(conversationId: $conversationId) {
+    id
+    conversationId
+    senderId
+    content
+  }
+}

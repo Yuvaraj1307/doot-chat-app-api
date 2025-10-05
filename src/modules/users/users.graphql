@@ -1,0 +1,23 @@
+mutation SignUp($input: CreateUserInput!) {
+  signUp(input: $input) {
+    id
+    displayName
+    email
+  }
+}
+
+query Me($id: String!) {
+  me(id: $id) {
+    id
+    displayName
+    email
+  }
+}
+
+query UserByEmail($email: String!) {
+  userByEmail(email: $email) {
+    id
+    displayName
+    email
+  }
+}

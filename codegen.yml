@@ -1,11 +1,13 @@
 overwrite: true
 schema: "src/graphql/schema.gql"
+documents: "src/modules/**/*.graphql"
 generates:
   src/graphql/generated/types.ts:
     plugins:
       - "typescript"
+      - "typescript-operations"
       - "typescript-resolvers"
     config:
-      contextType: "../../types/context#GraphQLContext"
+      contextType: "../../types/graphql-context#GraphQLContext"
       enumAsTypes: true
       avoidOptionals: true

@@ -1,0 +1,20 @@
+mutation CreateConversation($input: CreateConversationInput!) {
+  createConversation(input: $input) {
+    id
+    participants
+  }
+}
+
+query UserConversations($userId: String!) {
+  userConversations(userId: $userId) {
+    id
+    participants
+  }
+}
+
+query ConversationById($conversationId: String!) {
+  conversationById(conversationId: $conversationId) {
+    id
+    participants
+  }
+}

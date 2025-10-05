@@ -9,12 +9,8 @@ export class Conversation extends Document {
     id!: string;
 
     @Field(() => [String])
-    @Prop({ type: [String], required: true })
+    @Prop({ type: [String], required: true, validate: [(val: string[]) => val.length === 2] })
     participants!: string[];
-
-    @Field({ nullable: true })
-    @Prop()
-    title?: string;
 }
 
 export const ConversationSchema = SchemaFactory.createForClass(Conversation);
